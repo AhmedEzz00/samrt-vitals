@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:smart_vitals/constants.dart';
 import 'package:smart_vitals/models/patient%20models/vitals_models.dart';
 import 'package:smart_vitals/screens/patient%20screens/vitals%20screens/patient_additional_services_screen.dart';
-import 'package:smart_vitals/screens/patient%20screens/vitals%20screens/patient_blood_pressure_screen.dart';
+import 'package:smart_vitals/screens/patient%20screens/vitals%20screens/patient_blood_pressure_and_glucose_screen.dart';
 import 'package:smart_vitals/screens/patient%20screens/vitals%20screens/patient_ecg_screen.dart';
 import 'package:smart_vitals/screens/patient%20screens/vitals%20screens/patient_heart_rate_screen.dart';
 import 'package:smart_vitals/screens/patient%20screens/vitals%20screens/patient_oxygen_screen.dart';

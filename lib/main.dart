@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:smart_vitals/providers/bluetooth_provider.dart';
 import 'package:smart_vitals/screens/patient%20screens/main%20screens/patient_main_screen.dart';
 import 'package:smart_vitals/screens/patient%20screens/vitals%20screens/patient_additional_services_screen.dart';
-import 'package:smart_vitals/screens/patient%20screens/vitals%20screens/patient_blood_pressure_screen.dart';
+import 'package:smart_vitals/screens/patient%20screens/vitals%20screens/patient_blood_pressure_and_glucose_screen.dart';
 import 'package:smart_vitals/screens/patient%20screens/vitals%20screens/patient_ecg_screen.dart';
 import 'package:smart_vitals/screens/patient%20screens/vitals%20screens/patient_glocuse_screen.dart';
 import 'package:smart_vitals/screens/patient%20screens/vitals%20screens/patient_heart_rate_screen.dart';

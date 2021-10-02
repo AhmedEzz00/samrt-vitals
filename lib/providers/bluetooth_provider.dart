@@ -1,6 +1,7 @@
-import 'package:flutter/cupertino.dart';
+import 'dart:convert';
+import 'dart:typed_data';
+import 'package:flutter/material.dart';
 import 'package:flutter_bluetooth_serial/flutter_bluetooth_serial.dart';
-import 'package:smart_vitals/widgets/patient%20widgets/bluetooth_device_item_widget.dart';
 
 class BluetoothProvider with ChangeNotifier {
   // ignore: non_constant_identifier_names
@@ -8,21 +9,39 @@ class BluetoothProvider with ChangeNotifier {
   List<BluetoothDevice> targetDevices = [];
   FlutterBluetoothSerial flutterBluetoothSerial =
       FlutterBluetoothSerial.instance;
+  late BluetoothConnection connection;
+  String _messageBuffer = '';
+  String? latestMeasurement;
+  String? request;
+  bool isMeasuring = false;
+
+  void closeScreen() async{
+     isMeasuring = false;
+    }
+
+  @override
+  void dispose() {
+
+    super.dispose();
+  }
 
   startScanning() async {
     await flutterBluetoothSerial
         .getBondedDevices()
         .then((value) => targetDevices = value);
     flutterBluetoothSerial.cancelDiscovery();
-    
 
     notifyListeners();
   }
 
   connect(address) async {
     try {
-      await BluetoothConnection.toAddress(address);
-
+      connection =
+          await BluetoothConnection.toAddress(address).then((_cnnection) async {
+        connection = _cnnection;
+        connection.input!.listen(_onDataReceived);
+        return connection;
+      });
     } catch (e) {
       print(e.toString());
     }
@@ -33,15 +52,77 @@ class BluetoothProvider with ChangeNotifier {
     return BluetoothDevice(address: address).isConnected;
   }
 
+  _onDataReceived(Uint8List data) {
+    // Allocate buffer for parsed data
+    int backspacesCounter = 0;
+    data.forEach((byte) {
+      if (byte == 8 || byte == 127) {
+        backspacesCounter++;
+      }
+    });
+    Uint8List buffer = Uint8List(data.length - backspacesCounter);
+    int bufferIndex = buffer.length;
 
-  readData(){
-    
+    // Apply backspace control character
+    backspacesCounter = 0;
+    for (int i = data.length - 1; i >= 0; i--) {
+      if (data[i] == 8 || data[i] == 127) {
+        backspacesCounter++;
+      } else {
+        if (backspacesCounter > 0) {
+          backspacesCounter--;
+        } else {
+          buffer[--bufferIndex] = data[i];
+        }
+      }
+    }
+    // Create message if there is new line character
+    String dataString = String.fromCharCodes(buffer);
+    int index = buffer.indexOf(13);
+    if (~index != 0) {
+      latestMeasurement = backspacesCounter > 0
+          ? _messageBuffer.substring(
+              0, _messageBuffer.length - backspacesCounter)
+          : _messageBuffer + dataString.substring(0, index);
+      /*switch (request) {
+        case '0' :
+          
+          break;
+        default:
+      }*/
+      _messageBuffer = dataString.substring(index);
+      print('recent data: $latestMeasurement');
+    } else {
+      _messageBuffer = (backspacesCounter > 0
+          ? _messageBuffer.substring(
+              0, _messageBuffer.length - backspacesCounter)
+          : _messageBuffer + dataString);
+    }
+    isMeasuring = false;
+    notifyListeners();
   }
 
+  sendData(String data) async {
+    isMeasuring = true;
+    notifyListeners();
+    request = data;
+    if (data.length > 0) {
+      try {
+        connection.output.add(ascii.encode(data + "\r\n"));
+        await connection.output.allSent;
+      } catch (error) {
+        print(error.toString());
+      }
+    }
+  }
 
+  checkAdapter() {
+    if (flutterBluetoothSerial.state.toString() ==
+        BluetoothState.STATE_OFF.toString()) {
+      flutterBluetoothSerial.requestEnable();
+    }
+  }
 }
-
-
 
 
 
