@@ -34,6 +34,7 @@ dependencies:
   provider: ^6.0.0
   lottie: ^1.2.1
   flutter_bluetooth_serial: ^0.4.0
+  syncfusion_flutter_charts: ^19.3.44+1
   #flutter_reactive_ble: ^4.0.0
   #bluetooth: ^0.1.0  
   #flutter_ble_lib:

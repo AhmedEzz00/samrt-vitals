@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:smart_vitals/providers/bluetooth_provider.dart';
 import 'package:smart_vitals/widgets/patient%20widgets/circular_button_widget.dart';
+import 'package:syncfusion_flutter_charts/charts.dart';
 
 class EcgScreen extends StatelessWidget {
-  const EcgScreen({Key? key}) : super(key: key);
   static const screenName = 'ECG';
-
+  List<TestData>? _testData;
   @override
   Widget build(BuildContext context) {
     Size deviceSize = MediaQuery.of(context).size;
@@ -31,12 +31,47 @@ class EcgScreen extends StatelessWidget {
               child: Consumer<BluetoothProvider>(
                 builder: (context, provider, _) {
                   return CircularButton(() {
-                    provider.sendData('0');
+                    provider.sendData('4');
                   });
                 },
               ),
             ),
+            /*Consumer<BluetoothProvider>(builder: (context, provider, _) {
+              if(provider.ecg.last=!null){
+                _testData.add();
+              }
+              return Container(
+                height: deviceSize.height / 3,
+                child: SfCartesianChart(
+                  enableAxisAnimation: true,
+                  series: <LineSeries<TestData, double>>[
+                    LineSeries<TestData, double>(
+                        dataSource: _testData,
+                        xValueMapper: (TestData data, _) => data.x,
+                        yValueMapper: (TestData data, _) => data.y),
+                  ],
+                  primaryXAxis: NumericAxis(
+                    minimum: 0,
+                    maximum: 20,
+                    isVisible: true,
+                    decimalPlaces: 7,
+                  ),
+                  primaryYAxis: NumericAxis(
+                    minimum: 0,
+                    maximum: 1000,
+                    isVisible: true,
+                    decimalPlaces: 5,
+                  ),
+                ),
+              );
+            }),*/
           ],
         ));
   }
+}
+
+class TestData {
+  final double x;
+  final double y;
+  TestData(this.x, this.y);
 }

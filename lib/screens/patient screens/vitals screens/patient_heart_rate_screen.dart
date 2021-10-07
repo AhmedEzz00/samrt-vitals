@@ -27,11 +27,27 @@ class HeartRateScreen extends StatelessWidget {
             SizedBox(
               height: deviceSize.height * 0.05,
             ),
-            Center(child: Consumer<BluetoothProvider>(
+            Center(
+              child: Consumer<BluetoothProvider>(
                 builder: (context, provider, _) {
-                  return CircularButton((){provider.sendData('0');});
+                  return CircularButton(() {
+                    provider.sendData('2');
+                  });
                 },
-              ),),
+              ),
+            ),
+            Consumer<BluetoothProvider>(builder: (context, provider, _) {
+              return Column(
+                children: [
+                  SizedBox(
+                    height: 5,
+                  ),
+                  provider.latestMeasurement == null
+                      ? Text('No Data fetched')
+                      : Text(provider.latestMeasurement.toString(),maxLines: 2,),
+                ],
+              );
+            })
           ],
         ));
   }

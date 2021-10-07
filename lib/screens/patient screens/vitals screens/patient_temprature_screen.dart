@@ -31,11 +31,23 @@ class TempratureScreen extends StatelessWidget {
               child: Consumer<BluetoothProvider>(
                 builder: (context, provider, _) {
                   return CircularButton(() {
-                    provider.sendData('0');
+                    provider.sendData('1');
                   });
                 },
               ),
             ),
+            Consumer<BluetoothProvider>(builder: (context, provider, _) {
+              return Column(
+                children: [
+                  SizedBox(
+                    height: 5,
+                  ),
+                  provider.latestMeasurement == null
+                      ? Text('No Data fetched')
+                      : Text(provider.latestMeasurement.toString(),maxLines: 2,),
+                ],
+              );
+            })
           ],
         ));
   }

@@ -35,14 +35,20 @@ class BloodPressureAndGlucoseScreen extends StatelessWidget {
                 },
               ),
             ),
-            Row(
-              children: [
-               Text('yor Blood Pressure is: ',style: TextStyle(color: Colors.black,fontSize: 10),),
-                Consumer<BluetoothProvider>(builder: (context,provider,_){
-                  return provider.latestMeasurement.toString().isEmpty? Text('No Data fetched') : Text(provider.latestMeasurement.toString());
-                })
-              ],
-            )
+            Consumer<BluetoothProvider>(builder: (context,provider,_){
+              return Column(children: [
+                provider.gp.length<1? Text('No Data fetched') : Text(provider.gp[0].toString()),
+                 SizedBox(height: 5,),
+                provider.gp.length<2? Text('No Data fetched') : Text(provider.gp[1].toString()),
+                 SizedBox(height: 5,),
+                 provider.gp.length<3? Text('No Data fetched') : Text(provider.gp[2].toString()),
+                 SizedBox(height: 5,),
+                 provider.gp.length<4? Text('No Data fetched') : Text(provider.gp[3].toString()),
+                 SizedBox(height: 5,),
+                 provider.gp.length<5? Text('No Data fetched') : Text(provider.gp[4].toString()),
+
+              ],);
+            })
 
           ],
         ));

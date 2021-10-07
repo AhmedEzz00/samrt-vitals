@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:smart_vitals/constants.dart';
 import 'package:smart_vitals/models/patient%20models/vitals_models.dart';
-import 'package:smart_vitals/widgets/patient%20widgets/latest_measurement_item.dart';
+import 'package:smart_vitals/widgets/patient%20widgets/latest_measurement_item_widget.dart';
 
 class patientProfile extends StatelessWidget {
   const patientProfile({Key? key}) : super(key: key);

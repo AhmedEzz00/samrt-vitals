@@ -6,6 +6,8 @@ import 'package:flutter_bluetooth_serial/flutter_bluetooth_serial.dart';
 class BluetoothProvider with ChangeNotifier {
   // ignore: non_constant_identifier_names
 
+  List<dynamic> gp = [];
+  List<dynamic> ecg=[];
   List<BluetoothDevice> targetDevices = [];
   FlutterBluetoothSerial flutterBluetoothSerial =
       FlutterBluetoothSerial.instance;
@@ -14,15 +16,11 @@ class BluetoothProvider with ChangeNotifier {
   String? latestMeasurement;
   String? request;
   bool isMeasuring = false;
+  var counter= 0;
 
-  void closeScreen() async{
-     isMeasuring = false;
-    }
-
-  @override
-  void dispose() {
-
-    super.dispose();
+  void closeScreen() {
+    isMeasuring = false;
+    removeListener(() {});
   }
 
   startScanning() async {
@@ -80,18 +78,45 @@ class BluetoothProvider with ChangeNotifier {
     String dataString = String.fromCharCodes(buffer);
     int index = buffer.indexOf(13);
     if (~index != 0) {
-      latestMeasurement = backspacesCounter > 0
-          ? _messageBuffer.substring(
-              0, _messageBuffer.length - backspacesCounter)
-          : _messageBuffer + dataString.substring(0, index);
-      /*switch (request) {
-        case '0' :
-          
+      switch (request) {
+        case '0':
+          gp.add(backspacesCounter > 0
+              ? _messageBuffer.substring(
+                  0, _messageBuffer.length - backspacesCounter)
+              : _messageBuffer + dataString.substring(0, index));
+          _messageBuffer = dataString.substring(index);
+          print('$gp');
           break;
+
+        case '1':
+          latestMeasurement = backspacesCounter > 0
+              ? _messageBuffer.substring(
+                  0, _messageBuffer.length - backspacesCounter)
+              : _messageBuffer + dataString.substring(0, index);
+          _messageBuffer = dataString.substring(index);
+          print('$latestMeasurement');
+          break;
+
+        case '2':
+          latestMeasurement = backspacesCounter > 0
+              ? _messageBuffer.substring(
+                  0, _messageBuffer.length - backspacesCounter)
+              : _messageBuffer + dataString.substring(0, index);
+          _messageBuffer = dataString.substring(index);
+          print('$latestMeasurement');
+          break;
+        case '4':
+          ecg.add(backspacesCounter > 0
+              ? _messageBuffer.substring(
+                  0, _messageBuffer.length - backspacesCounter)
+              : _messageBuffer + dataString.substring(0, index));
+          _messageBuffer = dataString.substring(index);
+          print('${ecg.last}');
+          counter++;
+          break;
+
         default:
-      }*/
-      _messageBuffer = dataString.substring(index);
-      print('recent data: $latestMeasurement');
+      }
     } else {
       _messageBuffer = (backspacesCounter > 0
           ? _messageBuffer.substring(
@@ -103,6 +128,8 @@ class BluetoothProvider with ChangeNotifier {
   }
 
   sendData(String data) async {
+    gp.clear();
+    latestMeasurement=null;
     isMeasuring = true;
     notifyListeners();
     request = data;
