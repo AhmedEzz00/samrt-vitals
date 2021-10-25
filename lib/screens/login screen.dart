@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smart_vitals/screens/doctor%20screens/doctor_main_screen.dart';
 import 'package:smart_vitals/screens/patient%20screens/main%20screens/patient_main_screen.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -32,7 +33,9 @@ class _LoginScreenState extends State<LoginScreen> {
               'Doctor',
               style: TextStyle(color: Colors.white),
             ),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.of(context).pushNamed(DoctorMainScreen.screenName);
+            },
           )
         ],
       )),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:smart_vitals/providers/bluetooth_provider.dart';
+import 'package:smart_vitals/screens/doctor%20screens/doctor_main_screen.dart';
 import 'package:smart_vitals/screens/login%20screen.dart';
 import 'package:smart_vitals/screens/patient%20screens/main%20screens/patient_main_screen.dart';
 import 'package:smart_vitals/screens/patient%20screens/vitals%20screens/patient_additional_services_screen.dart';
@@ -36,9 +37,9 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
         theme: ThemeData(),
-        initialRoute: '/',
         routes: {
-          PatientMainScreen.screenName: (context)=> PatientMainScreen(),
+          PatientMainScreen.screenName: (context) => PatientMainScreen(),
+          DoctorMainScreen.screenName: (context) => DoctorMainScreen(),
           AdditionalServicesScreen.screenName: (context) =>
               AdditionalServicesScreen(),
           BloodPressureAndGlucoseScreen.screenName: (context) =>
