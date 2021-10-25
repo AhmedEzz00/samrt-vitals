@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:smart_vitals/providers/bluetooth_provider.dart';
+import 'package:smart_vitals/screens/login%20screen.dart';
 import 'package:smart_vitals/screens/patient%20screens/main%20screens/patient_main_screen.dart';
 import 'package:smart_vitals/screens/patient%20screens/vitals%20screens/patient_additional_services_screen.dart';
 import 'package:smart_vitals/screens/patient%20screens/vitals%20screens/patient_blood_pressure_and_glucose_screen.dart';
@@ -37,6 +38,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(),
         initialRoute: '/',
         routes: {
+          PatientMainScreen.screenName: (context)=> PatientMainScreen(),
           AdditionalServicesScreen.screenName: (context) =>
               AdditionalServicesScreen(),
           BloodPressureAndGlucoseScreen.screenName: (context) =>
@@ -49,7 +51,7 @@ class MyApp extends StatelessWidget {
           ConnectionScreen.screenName: (context) => ConnectionScreen(),
           TempratureScreen.screenName: (context) => TempratureScreen(),
         },
-        home: PatientMainScreen(),
+        home: LoginScreen(),
       ),
     );
   }

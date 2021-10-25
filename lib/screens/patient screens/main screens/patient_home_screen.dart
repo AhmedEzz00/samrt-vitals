@@ -131,7 +131,7 @@ class PatientHomeScreen extends StatelessWidget {
 List<VitalsModels> vitalsModels = [
   VitalsModels(
       icon: 'assets/images/blood-pressure.svg',
-      text: 'Blood pressure & Glucose',
+      text: 'Glucose & pressure',
       id: 1,
       screenName: BloodPressureAndGlucoseScreen.screenName),
   VitalsModels(

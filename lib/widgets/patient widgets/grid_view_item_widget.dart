@@ -45,7 +45,7 @@ Widget gridViewItem(
                   fontSize: deviceSize.width*0.035,
                 ),
                 textAlign: TextAlign.center,
-                maxLines: 2,
+                maxLines: 3,
                 textScaleFactor: 0.99,
               ),
             ),

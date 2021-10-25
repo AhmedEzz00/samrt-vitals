@@ -7,6 +7,7 @@ import 'patient_profile_screen.dart';
 import 'settings_screen.dart';
 
 class PatientMainScreen extends StatefulWidget {
+  static const screenName= 'PatientMainScreen';
   const PatientMainScreen({Key? key}) : super(key: key);
 
   @override
