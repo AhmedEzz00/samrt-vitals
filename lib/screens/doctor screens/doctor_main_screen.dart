@@ -13,7 +13,7 @@ class DoctorMainScreen extends StatefulWidget {
 }
 
 class _DoctortMainScreenState extends State<DoctorMainScreen> {
-  int? _selectedIndex;
+  int? _selectedIndex = 1;
 
   static List<Widget> _screens = [
     DrProfile(),
@@ -55,11 +55,11 @@ class _DoctortMainScreenState extends State<DoctorMainScreen> {
                 ),
               ),
             ),
-            BottomNavigationBarItem(
+           /*  BottomNavigationBarItem(
               label: 'settings',
               icon: SvgPicture.asset('assets/images/settings.svg',
                   color: Colors.grey[100], height: deviceSize.height * 0.04),
-            ),
+            ), */
           ],
         ),
         body: Center(
