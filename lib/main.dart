@@ -14,6 +14,9 @@ import 'package:smart_vitals/screens/patient%20screens/vitals%20screens/patient_
 import 'package:smart_vitals/screens/patient%20screens/vitals%20screens/patient_rate_doctor_screen.dart';
 import 'package:smart_vitals/screens/patient%20screens/vitals%20screens/patient_Connection_screen.dart';
 import 'package:smart_vitals/screens/patient%20screens/vitals%20screens/patient_temprature_screen.dart';
+import 'package:smart_vitals/themes.dart';
+
+import 'screens/historyScreen.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -36,7 +39,8 @@ class MyApp extends StatelessWidget {
         ),
       ],
       child: MaterialApp(
-        theme: ThemeData(),
+        debugShowCheckedModeBanner: false,
+        theme: MyThemes.lightTheme,
         routes: {
           PatientMainScreen.screenName: (context) => PatientMainScreen(),
           DoctorMainScreen.screenName: (context) => DoctorMainScreen(),
@@ -52,7 +56,7 @@ class MyApp extends StatelessWidget {
           ConnectionScreen.screenName: (context) => ConnectionScreen(),
           TempratureScreen.screenName: (context) => TempratureScreen(),
         },
-        home: LoginScreen(),
+        home: HistoryScreen(),
       ),
     );
   }

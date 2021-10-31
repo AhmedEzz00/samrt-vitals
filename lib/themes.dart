@@ -11,7 +11,7 @@ class MyThemes {
   ); */
 
   static final lightTheme = ThemeData(
-    scaffoldBackgroundColor: Colors.grey[200],
+    scaffoldBackgroundColor: Colors.blue[50],
     visualDensity: VisualDensity.adaptivePlatformDensity,
     primaryColor: primaryColor,
     iconTheme: IconThemeData(
