@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:smart_vitals/screens/doctor%20screens/settings_screen.dart';
 
-import 'doctor_home.dart';
-import 'dr.profie_page.dart';
+import 'doctor_home_ screen.dart';
+import 'doctor_profie_screen.dart';
 
 class DoctorMainScreen extends StatefulWidget {
   static const screenName = 'DoctorMainScreen';
@@ -13,11 +14,12 @@ class DoctorMainScreen extends StatefulWidget {
 }
 
 class _DoctortMainScreenState extends State<DoctorMainScreen> {
-  int? _selectedIndex = 1;
+  int _selectedIndex = 1;
 
   static List<Widget> _screens = [
-    DrProfile(),
+    DoctorProfileScreen(),
     DoctorHomeScreen(),
+    DoctorSettingsScreen(),
   ];
 
   @override
@@ -29,7 +31,7 @@ class _DoctortMainScreenState extends State<DoctorMainScreen> {
         bottomNavigationBar: BottomNavigationBar(
           fixedColor: Colors.white,
           showUnselectedLabels: false,
-          currentIndex: _selectedIndex ?? 0,
+          currentIndex: _selectedIndex,
           onTap: (index) {
             setState(() {
               _selectedIndex = index;
@@ -55,15 +57,15 @@ class _DoctortMainScreenState extends State<DoctorMainScreen> {
                 ),
               ),
             ),
-           /*  BottomNavigationBarItem(
+             BottomNavigationBarItem(
               label: 'settings',
               icon: SvgPicture.asset('assets/images/settings.svg',
                   color: Colors.grey[100], height: deviceSize.height * 0.04),
-            ), */
+            ), 
           ],
         ),
         body: Center(
-          child: _screens[_selectedIndex ?? 0],
+          child: _screens[_selectedIndex],
         ),
       ),
     );
