@@ -42,9 +42,9 @@ class TempratureScreen extends StatelessWidget {
                   SizedBox(
                     height: 5,
                   ),
-                  provider.latestMeasurement == null
+                  provider.temprature == null
                       ? Text('No Data fetched')
-                      : Text(provider.latestMeasurement.toString(),maxLines: 2,),
+                      : Text(provider.temprature.toString(),maxLines: 2,),
                 ],
               );
             })

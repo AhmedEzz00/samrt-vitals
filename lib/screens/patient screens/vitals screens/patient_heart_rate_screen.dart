@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:smart_vitals/providers/bluetooth_provider.dart';
 import 'package:smart_vitals/widgets/patient%20widgets/circular_button_widget.dart';
+import 'package:smart_vitals/widgets/patient%20widgets/titled_space_widget.dart';
 
 class HeartRateScreen extends StatelessWidget {
   const HeartRateScreen({Key? key}) : super(key: key);
@@ -11,17 +12,19 @@ class HeartRateScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     Size deviceSize = MediaQuery.of(context).size;
     return Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.blue[900],
-          title: Text(
-            'Heart rate',
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              fontWeight: FontWeight.w500,
-            ),
+      appBar: AppBar(
+        backgroundColor: Colors.blue[900],
+        title: Text(
+          'Heart rate',
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            fontWeight: FontWeight.w500,
           ),
         ),
-        body: Column(
+      ),
+      body: Container(
+        color: Colors.blue[50],
+        child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             SizedBox(
@@ -37,18 +40,45 @@ class HeartRateScreen extends StatelessWidget {
               ),
             ),
             Consumer<BluetoothProvider>(builder: (context, provider, _) {
-              return Column(
-                children: [
+              return Padding(
+                  padding: const EdgeInsets.only(top: 15, right: 12, left: 12),
+                  child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        titledSpaceWidget(
+                            fontSize: deviceSize.height * 0.03,
+                            titleText: 'Heart rate measurements:',
+                            widgets: [
+                              SizedBox(
+                                height: 5,
+                              ),
+                              provider.heartRate == null
+                                  ? Text('\n No measurements yet')
+                                  : Text(
+                                      provider.heartRate.toString(),
+                                      maxLines: 2,
+                                    ),
+                                    SizedBox(height: 20,)
+                            ])
+                      ]));
+            })
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+
+/*
                   SizedBox(
                     height: 5,
                   ),
-                  provider.latestMeasurement == null
+                  provider.heartRate == null
                       ? Text('No Data fetched')
-                      : Text(provider.latestMeasurement.toString(),maxLines: 2,),
-                ],
-              );
-            })
-          ],
-        ));
-  }
-}
+                      : Text(
+                          provider.heartRate.toString(),
+                          maxLines: 2,
+                        ),
+                
+*/

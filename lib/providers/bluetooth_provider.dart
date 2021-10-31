@@ -7,13 +7,16 @@ class BluetoothProvider with ChangeNotifier {
   // ignore: non_constant_identifier_names
 
   List<dynamic> gp = [];
+  String? latestMeasurement;
+  String? heartRate;
+  String? temprature;
+  String? oxygen;
   List<dynamic> ecg=[];
   List<BluetoothDevice> targetDevices = [];
   FlutterBluetoothSerial flutterBluetoothSerial =
       FlutterBluetoothSerial.instance;
   late BluetoothConnection connection;
   String _messageBuffer = '';
-  String? latestMeasurement;
   String? request;
   bool isMeasuring = false;
   var counter= 0;
@@ -89,21 +92,29 @@ class BluetoothProvider with ChangeNotifier {
           break;
 
         case '1':
-          latestMeasurement = backspacesCounter > 0
+          temprature = backspacesCounter > 0
               ? _messageBuffer.substring(
                   0, _messageBuffer.length - backspacesCounter)
               : _messageBuffer + dataString.substring(0, index);
           _messageBuffer = dataString.substring(index);
-          print('$latestMeasurement');
+          print('$temprature');
           break;
 
         case '2':
-          latestMeasurement = backspacesCounter > 0
+          heartRate = backspacesCounter > 0
               ? _messageBuffer.substring(
                   0, _messageBuffer.length - backspacesCounter)
               : _messageBuffer + dataString.substring(0, index);
           _messageBuffer = dataString.substring(index);
-          print('$latestMeasurement');
+          print('$heartRate');
+          break;
+        case '3':
+           oxygen= backspacesCounter > 0
+              ? _messageBuffer.substring(
+                  0, _messageBuffer.length - backspacesCounter)
+              : _messageBuffer + dataString.substring(0, index);
+          _messageBuffer = dataString.substring(index);
+          print('$oxygen');
           break;
         case '4':
           ecg.add(backspacesCounter > 0
