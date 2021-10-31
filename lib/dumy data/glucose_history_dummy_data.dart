@@ -1,5 +1,13 @@
 class GlucoseHistory {
-  String? glucose;
-  String? date;
-  String? time;
+  final icon;
+  final glucose;
+  final date;
+  final time;
+
+  GlucoseHistory(
+    {this.icon,
+    this.date,
+    this.glucose,
+    this.time,}
+  );
 }

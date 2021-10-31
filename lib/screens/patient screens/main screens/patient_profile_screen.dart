@@ -152,7 +152,7 @@ class PatientProfile extends StatelessWidget {
   }
 }
 
-List<VitalsModels> vitalsModels = [
+ List<VitalsModels> vitalsModels = [
   VitalsModels(
     icon: 'assets/images/blood-pressure.svg',
     text: 'Blood pressure',

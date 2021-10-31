@@ -1,6 +1,15 @@
 class PressureHistory {
-  String? systolic;
-  String? diastolic;
-  String? date;
-  String? time;
+  final icon;
+  final systolic;
+  final diastolic;
+  final date;
+  final time;
+
+  PressureHistory({
+    this.icon,
+    this.systolic,
+    this.diastolic,
+    this.date,
+    this.time,
+  });
 }
