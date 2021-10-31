@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:smart_vitals/providers/bluetooth_provider.dart';
-import 'package:smart_vitals/widgets/patient%20widgets/circular_button_widget.dart';
-import 'package:syncfusion_flutter_charts/charts.dart';
+import '../../../providers/bluetooth_provider.dart';
+import '../../../widgets/patient%20widgets/circular_button_widget.dart';
 
+// ignore: must_be_immutable
 class EcgScreen extends StatelessWidget {
   static const screenName = 'ECG';
-  List<TestData>? _testData;
+  // List<TestData>? _testData;
   @override
   Widget build(BuildContext context) {
     Size deviceSize = MediaQuery.of(context).size;

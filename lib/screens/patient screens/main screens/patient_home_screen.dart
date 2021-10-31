@@ -10,7 +10,7 @@ import 'package:smart_vitals/screens/patient%20screens/vitals%20screens/patient_
 import 'package:smart_vitals/screens/patient%20screens/vitals%20screens/patient_Connection_screen.dart';
 import 'package:smart_vitals/screens/patient%20screens/vitals%20screens/patient_temprature_screen.dart';
 
-import 'package:smart_vitals/widgets/patient%20widgets/grid_view_item_widget.dart';
+import '../../../widgets/patient%20widgets/grid_view_item_widget.dart';
 
 class PatientHomeScreen extends StatelessWidget {
   const PatientHomeScreen({Key? key}) : super(key: key);

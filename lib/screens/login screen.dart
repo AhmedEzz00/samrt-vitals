@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:smart_vitals/screens/doctor%20screens/doctor_main_screen.dart';
-import 'package:smart_vitals/screens/patient%20screens/main%20screens/patient_main_screen.dart';
+import 'doctor%20screens/doctor_main_screen.dart';
+import 'patient%20screens/main%20screens/patient_main_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);

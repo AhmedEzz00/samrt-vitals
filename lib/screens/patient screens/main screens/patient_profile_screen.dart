@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:smart_vitals/constants.dart';
-import 'package:smart_vitals/models/patient%20models/vitals_models.dart';
-import 'package:smart_vitals/widgets/patient%20widgets/latest_measurement_item_widget.dart';
+import '../../../constants.dart';
+import '../../../models/patient%20models/vitals_models.dart';
+import '../../../widgets/patient%20widgets/latest_measurement_item_widget.dart';
 
-class patientProfile extends StatelessWidget {
-  const patientProfile({Key? key}) : super(key: key);
+class PatientProfile extends StatelessWidget {
+  const PatientProfile({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +40,6 @@ class patientProfile extends StatelessWidget {
                   width: deviceSize.width * 0.07,
                 ),
                 Container(
-                  
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     color: Colors.white,

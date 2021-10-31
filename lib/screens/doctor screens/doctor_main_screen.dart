@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:smart_vitals/screens/doctor%20screens/settings_screen.dart';
+import '../doctor%20screens/settings_screen.dart';
 
 import 'doctor_home_ screen.dart';
 import 'doctor_profie_screen.dart';
@@ -57,11 +57,11 @@ class _DoctortMainScreenState extends State<DoctorMainScreen> {
                 ),
               ),
             ),
-             BottomNavigationBarItem(
+            BottomNavigationBarItem(
               label: 'settings',
               icon: SvgPicture.asset('assets/images/settings.svg',
                   color: Colors.grey[100], height: deviceSize.height * 0.04),
-            ), 
+            ),
           ],
         ),
         body: Center(

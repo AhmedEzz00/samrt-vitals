@@ -1,12 +1,11 @@
-import 'dart:async';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:outline_gradient_button/outline_gradient_button.dart';
 import 'package:provider/provider.dart';
-import 'package:smart_vitals/models/patient%20models/bluetooth_device_mdoel.dart';
-import 'package:smart_vitals/providers/bluetooth_provider.dart';
+import '../../providers/bluetooth_provider.dart';
 
+// ignore: must_be_immutable
 class CircularButton extends StatefulWidget {
   final onPressed;
   CircularButton(this.onPressed);
@@ -56,7 +55,7 @@ class _CircularButtonState extends State<CircularButton> {
   }
 */
   @override
-  void dispose(){
+  void dispose() {
     /* if (_timer != null) {
       _timer!.cancel();
     }*/
@@ -67,9 +66,9 @@ class _CircularButtonState extends State<CircularButton> {
 
   void widgetOnPressed() {
     widget.onPressed();
-   // setState(() {
+    // setState(() {
     //  measurePressed = true;
-   // });
+    // });
   }
 
   @override

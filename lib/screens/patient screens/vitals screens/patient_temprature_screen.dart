@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:smart_vitals/providers/bluetooth_provider.dart';
-import 'package:smart_vitals/widgets/patient%20widgets/circular_button_widget.dart';
+import '../../../providers/bluetooth_provider.dart';
+import '../../../widgets/patient%20widgets/circular_button_widget.dart';
 
 class TempratureScreen extends StatelessWidget {
   const TempratureScreen({Key? key}) : super(key: key);
@@ -44,7 +44,10 @@ class TempratureScreen extends StatelessWidget {
                   ),
                   provider.temprature == null
                       ? Text('No Data fetched')
-                      : Text(provider.temprature.toString(),maxLines: 2,),
+                      : Text(
+                          provider.temprature.toString(),
+                          maxLines: 2,
+                        ),
                 ],
               );
             })

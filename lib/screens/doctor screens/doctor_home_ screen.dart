@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import '../../themes.dart';
 
 class DoctorHomeScreen extends StatefulWidget {
   @override
@@ -41,46 +43,66 @@ class _DoctorHomeScreenState extends State<DoctorHomeScreen> {
           ),
         ),
       ),
-      body: Column(
-        children: [
-          Expanded(
-            child: ListView.builder(
-              itemBuilder: (context, index) {
-                return Padding(
-                  padding: const EdgeInsets.all(3.0),
-                  child: Card(
-                    elevation: 3,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20)),
-                    child: ListTile(
-                      onTap: () {},
-                      title: Text('patient1'),
-                      subtitle: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            Text('spo2    =>    20'),
-                            Text('hr    =>    20'),
-                            Text('sys    =>    30'),
-                            Text('dia    =>    40'),
-                            Text('sug    =>   50'),
-                          ],
-                        ),
-                      ),
-                      leading: CircleAvatar(
-                        backgroundImage:
-                            AssetImage('assets/images/profile.png'),
-                      ),
+      body: ListView.separated(
+        itemBuilder: (context, index) {
+          return Padding(
+            padding: const EdgeInsets.all(5.0),
+            child: ListTile(
+              tileColor: Colors.white,
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10)),
+              onTap: () {},
+              subtitle: Padding(
+                padding: const EdgeInsets.only(top: 20.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.baseline,
+                  textBaseline: TextBaseline.alphabetic,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(
+                      'Mohsen',
+                      style: MyThemes.lightTheme.textTheme.headline3,
                     ),
-                  ),
-                );
-              },
-              itemCount: 20,
+                    ListTile(
+                      leading: Icon(FontAwesomeIcons.pumpMedical),
+                      title: Text('Pressure'),
+                      trailing: Text('20'),
+                    ),
+                    ListTile(
+                      leading: Icon(FontAwesomeIcons.lungs),
+                      title: Text('SPO2'),
+                      trailing: Text('20'),
+                    ),
+                    ListTile(
+                      leading: Icon(FontAwesomeIcons.heartbeat),
+                      title: Text('Heart Rate'),
+                      trailing: Text('30'),
+                    ),
+                    ListTile(
+                      leading: Icon(FontAwesomeIcons.thermometerHalf),
+                      title: Text('Temperature '),
+                      trailing: Text('30'),
+                    ),
+                    ListTile(
+                      leading: Icon(FontAwesomeIcons.syringe),
+                      title: Text('Glucose'),
+                      trailing: Text('30'),
+                    ),
+                  ],
+                ),
+              ),
+              leading: CircleAvatar(
+                radius: 25,
+                backgroundImage: AssetImage('assets/images/profile.png'),
+              ),
             ),
-          ),
-        ],
+          );
+        },
+        itemCount: 20,
+        separatorBuilder: (context, index) => Container(
+          height: 1.5,
+          color: Colors.grey[200],
+        ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
