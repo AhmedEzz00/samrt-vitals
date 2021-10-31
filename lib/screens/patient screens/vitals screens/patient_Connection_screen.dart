@@ -1,9 +1,7 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:smart_vitals/providers/bluetooth_provider.dart';
-import 'package:smart_vitals/widgets/patient%20widgets/bluetooth_device_item_widget.dart';
+import '../../../providers/bluetooth_provider.dart';
+import '../../../widgets/patient%20widgets/bluetooth_device_item_widget.dart';
 
 class ConnectionScreen extends StatefulWidget {
   const ConnectionScreen({Key? key}) : super(key: key);
@@ -29,7 +27,7 @@ class _ConnectionScreenState extends State<ConnectionScreen> {
 
   @override
   Widget build(BuildContext context) {
-    Size deviceSize= MediaQuery.of(context).size;
+    Size deviceSize = MediaQuery.of(context).size;
     print('patient connection screen');
     return Scaffold(
         appBar: AppBar(
@@ -49,7 +47,7 @@ class _ConnectionScreenState extends State<ConnectionScreen> {
                 ? Text('empty')
                 : ListView.separated(
                     itemBuilder: (context, index) {
-                      return bluetoothDevice(
+                      return BluetoothDevice(
                         _bluetoothProvider.targetDevices.elementAt(index).name,
                         () {
                           _bluetoothProvider.connect(_bluetoothProvider
@@ -64,9 +62,13 @@ class _ConnectionScreenState extends State<ConnectionScreen> {
                       );
                     },
                     itemCount: _bluetoothProvider.targetDevices.length,
-                    separatorBuilder: (context,index){
+                    separatorBuilder: (context, index) {
                       return Center(
-                        child: Container(height: 1,width: deviceSize.width*0.6,color: Colors.blue,),
+                        child: Container(
+                          height: 1,
+                          width: deviceSize.width * 0.6,
+                          color: Colors.blue,
+                        ),
                       );
                     },
                   );

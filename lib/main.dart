@@ -1,22 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
-import 'package:smart_vitals/providers/bluetooth_provider.dart';
-import 'package:smart_vitals/screens/doctor%20screens/doctor_main_screen.dart';
-import 'package:smart_vitals/screens/login%20screen.dart';
-import 'package:smart_vitals/screens/patient%20screens/main%20screens/patient_main_screen.dart';
-import 'package:smart_vitals/screens/patient%20screens/vitals%20screens/patient_additional_services_screen.dart';
-import 'package:smart_vitals/screens/patient%20screens/vitals%20screens/patient_blood_pressure_and_glucose_screen.dart';
-import 'package:smart_vitals/screens/patient%20screens/vitals%20screens/patient_ecg_screen.dart';
-import 'package:smart_vitals/screens/patient%20screens/vitals%20screens/patient_glocuse_screen.dart';
-import 'package:smart_vitals/screens/patient%20screens/vitals%20screens/patient_heart_rate_screen.dart';
-import 'package:smart_vitals/screens/patient%20screens/vitals%20screens/patient_oxygen_screen.dart';
-import 'package:smart_vitals/screens/patient%20screens/vitals%20screens/patient_rate_doctor_screen.dart';
-import 'package:smart_vitals/screens/patient%20screens/vitals%20screens/patient_Connection_screen.dart';
-import 'package:smart_vitals/screens/patient%20screens/vitals%20screens/patient_temprature_screen.dart';
-import 'package:smart_vitals/themes.dart';
-
-import 'screens/historyScreen.dart';
+import 'providers/bluetooth_provider.dart';
+import 'screens/doctor%20screens/doctor_main_screen.dart';
+import 'screens/login%20screen.dart';
+import 'screens/patient%20screens/main%20screens/patient_main_screen.dart';
+import 'screens/patient%20screens/vitals%20screens/patient_additional_services_screen.dart';
+import 'screens/patient%20screens/vitals%20screens/patient_blood_pressure_and_glucose_screen.dart';
+import 'screens/patient%20screens/vitals%20screens/patient_ecg_screen.dart';
+import 'screens/patient%20screens/vitals%20screens/patient_glocuse_screen.dart';
+import 'screens/patient%20screens/vitals%20screens/patient_heart_rate_screen.dart';
+import 'screens/patient%20screens/vitals%20screens/patient_oxygen_screen.dart';
+import 'screens/patient%20screens/vitals%20screens/patient_rate_doctor_screen.dart';
+import 'screens/patient%20screens/vitals%20screens/patient_Connection_screen.dart';
+import 'screens/patient%20screens/vitals%20screens/patient_temprature_screen.dart';
+import 'themes.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -56,7 +54,7 @@ class MyApp extends StatelessWidget {
           ConnectionScreen.screenName: (context) => ConnectionScreen(),
           TempratureScreen.screenName: (context) => TempratureScreen(),
         },
-        home: HistoryScreen(),
+        home: LoginScreen(),
       ),
     );
   }

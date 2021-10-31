@@ -3,21 +3,21 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class bluetoothDevice extends StatefulWidget {
+class BluetoothDevice extends StatefulWidget {
   final deviceName;
   final onPressed;
   //final status;
 
-  bluetoothDevice(
+  BluetoothDevice(
     this.deviceName,
     this.onPressed,
   );
 
   @override
-  _bluetoothDeviceState createState() => _bluetoothDeviceState();
+  _BluetoothDeviceState createState() => _BluetoothDeviceState();
 }
 
-class _bluetoothDeviceState extends State<bluetoothDevice> {
+class _BluetoothDeviceState extends State<BluetoothDevice> {
   @override
   Widget build(BuildContext context) {
     //  bool connectionState= false;

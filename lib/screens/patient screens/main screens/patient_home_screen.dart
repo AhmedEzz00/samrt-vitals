@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:smart_vitals/constants.dart';
-import 'package:smart_vitals/models/patient%20models/vitals_models.dart';
-import 'package:smart_vitals/screens/patient%20screens/vitals%20screens/patient_additional_services_screen.dart';
-import 'package:smart_vitals/screens/patient%20screens/vitals%20screens/patient_blood_pressure_and_glucose_screen.dart';
-import 'package:smart_vitals/screens/patient%20screens/vitals%20screens/patient_ecg_screen.dart';
-import 'package:smart_vitals/screens/patient%20screens/vitals%20screens/patient_heart_rate_screen.dart';
-import 'package:smart_vitals/screens/patient%20screens/vitals%20screens/patient_oxygen_screen.dart';
-import 'package:smart_vitals/screens/patient%20screens/vitals%20screens/patient_rate_doctor_screen.dart';
-import 'package:smart_vitals/screens/patient%20screens/vitals%20screens/patient_Connection_screen.dart';
-import 'package:smart_vitals/screens/patient%20screens/vitals%20screens/patient_temprature_screen.dart';
+import '../../../constants.dart';
+import '../../../models/patient%20models/vitals_models.dart';
+import '../../patient%20screens/vitals%20screens/patient_additional_services_screen.dart';
+import '../../patient%20screens/vitals%20screens/patient_blood_pressure_and_glucose_screen.dart';
+import '../../patient%20screens/vitals%20screens/patient_ecg_screen.dart';
+import '../../patient%20screens/vitals%20screens/patient_heart_rate_screen.dart';
+import '../../patient%20screens/vitals%20screens/patient_oxygen_screen.dart';
+import '../../patient%20screens/vitals%20screens/patient_rate_doctor_screen.dart';
+import '../../patient%20screens/vitals%20screens/patient_Connection_screen.dart';
+import '../../patient%20screens/vitals%20screens/patient_temprature_screen.dart';
 
-import 'package:smart_vitals/widgets/patient%20widgets/grid_view_item_widget.dart';
+import '../../../widgets/patient%20widgets/grid_view_item_widget.dart';
 
 class PatientHomeScreen extends StatelessWidget {
   const PatientHomeScreen({Key? key}) : super(key: key);

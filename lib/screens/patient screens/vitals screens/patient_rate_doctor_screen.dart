@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:smart_vitals/providers/bluetooth_provider.dart';
-import 'package:smart_vitals/widgets/patient%20widgets/circular_button_widget.dart';
-import 'package:smart_vitals/widgets/patient%20widgets/titled_space_widget.dart';
+import '../../../providers/bluetooth_provider.dart';
+import '../../../widgets/patient%20widgets/circular_button_widget.dart';
+import '../../../widgets/patient%20widgets/titled_space_widget.dart';
 
 class RateDoctorScreen extends StatelessWidget {
   const RateDoctorScreen({Key? key}) : super(key: key);

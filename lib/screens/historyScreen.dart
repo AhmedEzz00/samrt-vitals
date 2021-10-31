@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:smart_vitals/themes.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import '../themes.dart';
 
 class HistoryScreen extends StatelessWidget {
   @override
