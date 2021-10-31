@@ -38,7 +38,7 @@ Widget gridViewItem(
           Expanded(
             flex: 1,
             child: Padding(
-              padding: const EdgeInsets.only(left: 8.0,right: 8.0),
+              padding: const EdgeInsets.only(left: 6.0,right: 6.0),
               child: Text(
                 '$text',
                 style: TextStyle(

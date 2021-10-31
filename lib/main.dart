@@ -5,7 +5,7 @@ import 'package:smart_vitals/providers/bluetooth_provider.dart';
 import 'package:smart_vitals/screens/doctor%20screens/doctor_main_screen.dart';
 import 'package:smart_vitals/screens/login%20screen.dart';
 import 'package:smart_vitals/screens/patient%20screens/main%20screens/patient_main_screen.dart';
-import 'package:smart_vitals/screens/patient%20screens/vitals%20screens/patient_additional_services_screen.dart';
+import 'package:smart_vitals/screens/patient%20screens/vitals%20screens/patient_measurements_history_screen.dart';
 import 'package:smart_vitals/screens/patient%20screens/vitals%20screens/patient_blood_pressure_and_glucose_screen.dart';
 import 'package:smart_vitals/screens/patient%20screens/vitals%20screens/patient_ecg_screen.dart';
 import 'package:smart_vitals/screens/patient%20screens/vitals%20screens/patient_glocuse_screen.dart';
@@ -16,7 +16,6 @@ import 'package:smart_vitals/screens/patient%20screens/vitals%20screens/patient_
 import 'package:smart_vitals/screens/patient%20screens/vitals%20screens/patient_temprature_screen.dart';
 import 'package:smart_vitals/themes.dart';
 
-import 'screens/historyScreen.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -44,8 +43,9 @@ class MyApp extends StatelessWidget {
         routes: {
           PatientMainScreen.screenName: (context) => PatientMainScreen(),
           DoctorMainScreen.screenName: (context) => DoctorMainScreen(),
-          AdditionalServicesScreen.screenName: (context) =>
-              AdditionalServicesScreen(),
+          MeasurementHistoryScreen.screenName: (context) => MeasurementHistoryScreen(),
+          // AdditionalServicesScreen.screenName: (context) =>
+          //     AdditionalServicesScreen(),
           BloodPressureAndGlucoseScreen.screenName: (context) =>
               BloodPressureAndGlucoseScreen(),
           EcgScreen.screenName: (context) => EcgScreen(),
@@ -56,7 +56,7 @@ class MyApp extends StatelessWidget {
           ConnectionScreen.screenName: (context) => ConnectionScreen(),
           TempratureScreen.screenName: (context) => TempratureScreen(),
         },
-        home: HistoryScreen(),
+        home: LoginScreen(),
       ),
     );
   }

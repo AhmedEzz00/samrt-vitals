@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:smart_vitals/constants.dart';
 import 'package:smart_vitals/models/patient%20models/vitals_models.dart';
-import 'package:smart_vitals/screens/patient%20screens/vitals%20screens/patient_additional_services_screen.dart';
+import 'package:smart_vitals/screens/patient%20screens/vitals%20screens/patient_measurements_history_screen.dart';
 import 'package:smart_vitals/screens/patient%20screens/vitals%20screens/patient_blood_pressure_and_glucose_screen.dart';
 import 'package:smart_vitals/screens/patient%20screens/vitals%20screens/patient_ecg_screen.dart';
 import 'package:smart_vitals/screens/patient%20screens/vitals%20screens/patient_heart_rate_screen.dart';
@@ -165,10 +165,10 @@ List<VitalsModels> vitalsModels = [
       id: 9,
       screenName: ConnectionScreen.screenName),
   VitalsModels(
-      icon: 'assets/images/plus.svg',
-      text: 'Additional services',
+      icon: 'assets/images/medical-history.svg',
+      text: 'Measurements history',
       id: 7,
-      screenName: AdditionalServicesScreen.screenName),
+      screenName: MeasurementHistoryScreen.screenName),
   VitalsModels(
       icon: 'assets/images/plus.svg',
       text: 'Rate doctor',
